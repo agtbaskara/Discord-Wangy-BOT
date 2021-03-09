@@ -3,7 +3,6 @@ import json
 import os
 import logging
 from datetime import datetime
-from dotenv import load_dotenv
 
 class EmbedHelper():
     @staticmethod
@@ -105,8 +104,7 @@ def main():
     
     Logger.initialize()
     Logger.info('App started')
-
-    load_dotenv()
+    
     TOKEN = os.getenv('DISCORD_TOKEN')
 
     client = WangyClient()
