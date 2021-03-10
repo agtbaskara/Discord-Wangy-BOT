@@ -77,21 +77,23 @@ class WangyClient(discord.AutoShardedClient):
                     except Exception as err:
                         Logger.info("Error sending message (Type: wangy_default) (User: {}) (Reason: {})"
                             .format(message.author.id, err))
-            if len(contents) == 3:
+            if len(contents) >= 3:
                 Logger.info("Sending message (Type: wangy_type) (User: {})".format(message.author.id))
                 wangy_type = None
                 if contents[1] == 'tipe1':
+                    index_start = 2
                     wangy_type = 'wangy_1'
                 elif contents[1] == 'tipe2':
+                    index_start = 2
                     wangy_type = 'wangy_2'
                 elif contents[1] == 'tipe3':
+                    index_start = 2
                     wangy_type = 'wangy_3'
                 else:
-                    Logger.info("Error sending message (Type: wangy_type) (User: {}) (Reason: wrong format)"
-                        .format(message.author.id))
-                    return
+                    index_start = 1
+                    wangy_type = 'wangy_1'
                 
-                wangy_text = self.wangy_string[wangy_type].replace('$name', '**' + contents[2].upper() + '**')
+                wangy_text = self.wangy_string[wangy_type].replace('$name', '**' + ' '.join(contents[index_start:]).upper() + '**')
                 try:
                     await message.channel.send(wangy_text)
                 except Exception as err:
