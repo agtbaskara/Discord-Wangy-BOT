@@ -3,6 +3,11 @@ Discord-Wangy-BOT
 
 Tidak ada faedahnya sama sekali
 
-## Now deployable on Heroku!!!
+## How to deploy:
+```
+Add `DISCORD_TOKEN` and `DISCORD_GUILDIDS` to Config Vars
+```
 
-Add `DISCORD_TOKEN` and `DISCORD_SHARD_COUNT` to Config Vars
+## Update: Now deployable on Heroku!!!
+## Update: Now support slash command!!!
+## Update: Now without logging!!!
